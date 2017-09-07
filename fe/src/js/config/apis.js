@@ -38,6 +38,6 @@ export const responseHandler = (options, resData, resolve, reject) => {
 var _apis = {}
 for ( var i in AJAX_MAP ){
     if( !_apis[i] ) _apis[i] = undefined
-    _apis[i] = weex.config.env.requestUrl + (AJAX_MAP[i])
+    _apis[i] = weex.config.env.request + (AJAX_MAP[i])
 }
 export const apis =  _apis

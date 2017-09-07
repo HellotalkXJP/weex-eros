@@ -12,37 +12,11 @@ var camera = weex.requireModule('bmCamera'),
 import isFunction from 'lodash/isFunction'
 
 var Camera = Object.create(null)
-
-Camera.install = (Vue, options) => {
-    Vue.prototype.$camera = {
-        // 扫一扫
-        scanCode(callback){
-            return new Promise((resolve, reject) => {
-                camera.scan((resData) => {
-                    if(!resData){
-                        resData = {
-                            resCode: -1,
-                            msg: '获取信息失败，请重试',
-                            data: {}
-                        }
-                    }
-                    if(isFunction(callback)){
-                        callback.call(this, resData)
-                    }
-                    if(resData && resData.resCode == 0){
-                        resolve(resData)
-                    }else{
-                        resData.msg && modal.alert({
-                            message: resData.msg,
-                            okTitle: '确定'
-                        })
-                        reject(resData)
-                    }
-                })
-            })
-        },
+var Image = Object.create(null)
+Image.install = (Vue, options) => {
+    Vue.prototype.$image = {
         // 上传图片
-        uploadImg(options, callback){
+        upload(options, callback){
             var options = options || {}
             if(isFunction(options) && !callback){
                 callback = options
@@ -77,7 +51,7 @@ Camera.install = (Vue, options) => {
             })
         },
         // 浏览图片
-        browserImg(options,callback){
+        browser(options,callback){
             var options = options || {}
             if(isFunction(options) && !callback){
                 callback = options
@@ -97,4 +71,36 @@ Camera.install = (Vue, options) => {
     }
 }
 
+Camera.install = (Vue, options) => {
+    Vue.prototype.$camera = {
+        // 扫一扫
+        scan(callback){
+            return new Promise((resolve, reject) => {
+                camera.scan((resData) => {
+                    if(!resData){
+                        resData = {
+                            resCode: -1,
+                            msg: '获取信息失败，请重试',
+                            data: {}
+                        }
+                    }
+                    if(isFunction(callback)){
+                        callback.call(this, resData)
+                    }
+                    if(resData && resData.resCode == 0){
+                        resolve(resData)
+                    }else{
+                        resData.msg && modal.alert({
+                            message: resData.msg,
+                            okTitle: '确定'
+                        })
+                        reject(resData)
+                    }
+                })
+            })
+        },
+    }
+}
+
 Vue.use(Camera)
+Vue.use(Image)

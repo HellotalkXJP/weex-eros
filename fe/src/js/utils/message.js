@@ -18,7 +18,7 @@ const MESSAGE_MAP = {
 }
 
 // 事件分发器
-export const distribute = (options, eventHandle) => {
+export const dispatch = (options, eventHandle) => {
     MESSAGE_MAP[options.type] && MESSAGE_MAP[options.type](options)
 }
 

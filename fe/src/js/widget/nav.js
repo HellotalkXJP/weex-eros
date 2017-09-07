@@ -6,25 +6,29 @@ import isFunction from 'lodash/isFunction'
 var Navigator = Object.create(null)
 
 Navigator.install = (Vue, options) => {
-    Vue.prototype.$nav = {
+    Vue.prototype.$navigator = {
         setLeftItem(options, callback){
             navigator.setLeftItem(options, () => {
-                isFunction(callback) && callback()
+                if(!!options.clickCallback) return
+                isFunction(options.clickCallback) && options.clickCallback()
             })
         },
         setRightItem(options, callback){
             navigator.setRightItem(options, () => {
-                isFunction(callback) && callback()
+                if(!!options.clickCallback) return
+                isFunction(options.clickCallback) && options.clickCallback()
             })
         },
         setCenterItem(options, callback){
             navigator.setCenterItem(options, () => {
-                isFunction(callback) && callback()
+                if(!!options.clickCallback) return
+                isFunction(options.clickCallback) && options.clickCallback()
             })
         },
         setNavigationInfo(options, callback){
             navigator.setNavigationInfo(options, () => {
-                isFunction(callback) && callback()
+                if(!!options.clickCallback) return
+                isFunction(options.clickCallback) && options.clickCallback()
             })
         }
     }

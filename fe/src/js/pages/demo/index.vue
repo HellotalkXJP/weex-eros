@@ -1,7 +1,7 @@
 <template>
     <div>
         <tab :active-index="activeIndex" @change="onchange"></tab>
-        <scroller append="tree" class="scroller" paging-enabled="true" scroll-direction="horizontal" @scroll="onscroll">
+        <scroller append="tree" class="scroller" paging-enabled="true" scroll-direction="horizontal" @scroll="onscroll" offset-accuracy="0">
              <div class="page" ref="page_1">
                 <tab-item1></tab-item1>
             </div>

@@ -74,7 +74,7 @@ Storage.install = (Vue, options) => {
             })
         },
 
-        remove(callback){
+        removeAll(callback){
             return new Promise((resolve, reject) => {
                 storage.removeData((resData) => {
                     if(isFunction(callback)){

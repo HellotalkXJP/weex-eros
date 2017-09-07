@@ -1,0 +1,45 @@
+{
+    "appName": "weex-eros-template",
+    "version": {
+        "android": "1.0.0",
+        "iOS": "1.0.0"
+    },
+    "page": {
+        "homePage": "/pages/home/index.js",
+        "mediatorPage": "/service/bus/index.js",
+        "navBarColor": "#3385ff"
+    },
+
+    "url": {
+        "request": "http://test.weex-eros.com",
+        "jsServer": "http://app.weex-eros.com",
+        "image": "https://lev-inf.benmu-health.com/test/xxx",
+        "updateVersion": "http://test.weex-eros.com/version/checkJSUpdate"
+    },
+    "zipFolder": {
+        "server": "home/app/",
+        "iOS": "/ios/WeexEros/WeexEros",
+        "android": "/android/WeexFrameworkWrapper/app/src/main/assets"
+    },
+
+    "getui": {
+        "enabled": "false",
+        "appId": "",
+        "appKey": "",
+        "appSecret": ""
+    },
+    "umeng": {
+        "enabled": "false",
+        "iOSAppKey": "",
+        "androidAppKey": ""
+    },
+    "wechat": {
+        "enabled": "false",
+        "appId": "",
+        "appSecret": ""
+    },
+    "amap": {
+        "enabled": "false",
+        "appKey": ""
+    }
+}

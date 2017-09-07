@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sudo rm -rf WeexiOSSDK/
-sudo rm -rf Benmu-iOS-Library/
+rm -rf WeexiOSSDK/
+rm -rf Benmu-iOS-Library/
 #rm -rf Podfile.lock
 #rm -rf Pods/
 

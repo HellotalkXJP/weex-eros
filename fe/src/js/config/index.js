@@ -4,13 +4,7 @@ import { apis, responseHandler } from './apis'
 export const config = {
     pages,
     apis,
-    responseHandler,
-    // ajax请求域名
-    REQUEST_URL: weex.config.env.requestUrl,
-    // 前端静态资源的基础 url
-    PAGE_BASE_URL: weex.config.env.localUrl,
-    // js绝对路径，使用tab组件的时候会用到
-    JS_AB_PATH: `${weex.config.env.localUrl}/fe/dist/js`,
+    responseHandler
 }
 
 Vue.prototype.eros = config

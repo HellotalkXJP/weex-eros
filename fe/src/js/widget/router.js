@@ -97,37 +97,30 @@ Router.install = (Vue, options) => {
         open(options) {
             options = options || {}
             let currentPageInfo = this.getUrl(options.name)
-            if (currentPageInfo && currentPageInfo.url) {
-                if (options.hideNavbar && !options.statusBarStyle) {
-                    options.statusBarStyle = 'Default'
-                }
-                return new Promise((resolve, reject) => {
-                    router.open({
-                        url: currentPageInfo.url,
-                        animateType: options.animateType || DEFAULT_ANIMATETYPE,
-                        params: options.params || {},
-                        forbidBack: options.forbidBack || false,
-                        needBackCallback: isFunction(options.backCallback),
-                        navigationInfo: {
-                            statusBarStyle: options.statusBarStyle || 'default',
-                            hideNavbar: options.hideNavbar || !currentPageInfo.title || false,
-                            title: options.title || currentPageInfo.title
-                        }
-                    }, (data) => {
-                        if (isFunction(options.backCallback)) {
-                            options.backCallback.call(this, data)
-                        }
-                    })
+            if (!currentPageInfo || !currentPageInfo.url) return
+            return new Promise((resolve, reject) => {
+                router.open({
+                    url: currentPageInfo.url,
+                    type: options.type || DEFAULT_ANIMATETYPE,
+                    params: options.params || {},
+                    canBack: options.canBack || true,
+                    navShow: options.navShow || !!currentPageInfo.title || true,
+                    navTitle: options.navTitle || currentPageInfo.title,
+                    statusBarStyle: options.statusBarStyle || 'Default',
+                    isRunBackCallback: isFunction(options.backCallback)
+                }, (data) => {
+                    if (isFunction(options.backCallback)) {
+                        options.backCallback.call(this, data)
+                    }
                 })
-            }
+            })
         },
         back(options) {
             options = options || {}
             return new Promise((resolve, reject) => {
                 router.back({
-                    length: options.length || 1,
-                    animateType: options.animateType || DEFAULT_ANIMATETYPE,
-                    params: options.params || {},
+                    type: options.type || DEFAULT_ANIMATETYPE,
+                    length: options.length || 1
                 }, (data) => {
                     if (isFunction(options.callback)) {
                         options.callback.call(this, data)
@@ -160,11 +153,6 @@ Router.install = (Vue, options) => {
         refresh() {
             router.refreshWeex()
         },
-        backHome(homePageIndex) {
-            router.backHome({
-                homePageIndex: homePageIndex || 0
-            })
-        },
         setBackParams(params) {
             if (isPlainObject(params)) {
                 storage.setData('router.backParams', JSON.stringify(params))
@@ -188,11 +176,18 @@ Router.install = (Vue, options) => {
 
             router.toWebView(params)
         },
-        toMap(cfg) {
-            if (!cfg.destination) return
-            router.toMap({
-                destination: cfg.destination
-            })
+        toMap(options) {
+            // options = {
+            //     type:'NAVIGATION', //type类型：NAVIGATION(表现方式为：地图上添加起点终点标示大头针，终点标示上面有个导航的按钮)
+            //     title: '页面标题', //页面标题
+            //     navigationInfo: {
+            //         title: '北京朝阳医院', //目的地名称
+            //         address: '北京市朝阳区工体南路8号', //目的地地址
+            //         longitude:'', //目的地经度
+            //         latitude:'' //目的地纬度
+            //      }
+            // }
+            router.toMap(options)
         },
         toCallPhone(phone) {
             if (phone) {

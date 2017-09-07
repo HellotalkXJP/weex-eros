@@ -13,7 +13,7 @@ import isFunction from 'lodash/isFunction'
 var Pay = Object.create(null)
 
 Pay.install = (Vue, options) => {
-    Vue.prototype.$wechatPay = {
+    Vue.prototype.$pay = {
         wechat(params, callback){
             return new Promise((resolve, reject) => {
                 pay.payByWechat(params, (resData) => {

@@ -59,6 +59,7 @@ module.exports = {
       })
     },
     handle_router() {
+      debugger
       this.$router.open({
         name: 'router.test'
       })
@@ -66,7 +67,7 @@ module.exports = {
     handle_routerPresent() {
       this.$router.open({
         name: 'router.test',
-        animateType: 'PRESENT'
+        type: 'PRESENT'
       })
     },
     handle_routerWebView() {
@@ -113,8 +114,8 @@ module.exports = {
           this.lng = resData.data.locationLng
       })
     },
-    handle_scanCode() {
-      this.$camera.scanCode(resData => {
+    handle_scan() {
+      this.$camera.scan(resData => {
           this.$notice.alert({
           title: '提示',
           message: resData
@@ -211,7 +212,7 @@ module.exports = {
         {
           id: 9,
           name: '扫一扫',
-          type: 'scanCode',
+          type: 'scan',
         },
         {
           id: 10,

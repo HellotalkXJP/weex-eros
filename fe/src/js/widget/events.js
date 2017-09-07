@@ -6,9 +6,9 @@
 */
 
 import _isArray from 'lodash/isArray'
-import { distribute } from 'Utils/message'
+import { dispatch } from 'Utils/message'
 
-var events = weex.requireModule('bmEvents'),
+var event = weex.requireModule('bmEvents'),
     globalEvent = weex.requireModule('globalEvent')
 
 const GlobalEvent = Object.create(null)
@@ -16,18 +16,18 @@ const GLOBALEVENT = Object.create(null)
 
 // 消息推送
 globalEvent.addEventListener("pushMessage", function(options) {
-    distribute(options, GLOBALEVENT)
+    dispatch(options, GLOBALEVENT)
 })
 
-// app 被放到后台
-globalEvent.addEventListener("appWillResignActive", function(options) {
-    _isArray(GLOBALEVENT['appDeActive']) && GLOBALEVENT['appDeActive'].map((item) => {
+// app 被放到后台 appWillResignActive
+globalEvent.addEventListener("appDeactive", function(options) {
+    _isArray(GLOBALEVENT['appDeactive']) && GLOBALEVENT['appDeactive'].map((item) => {
         item(options)
     })
 })
 
-// app 从后台唤起
-globalEvent.addEventListener("appDidBecomeActive", function(options) {
+// app 从后台唤起 appDidBecomeActive
+globalEvent.addEventListener("appActive", function(options) {
     _isArray(GLOBALEVENT['appActive']) && GLOBALEVENT['appActive'].map((item) => {
         item(options)
     })
@@ -36,8 +36,8 @@ globalEvent.addEventListener("appDidBecomeActive", function(options) {
 GlobalEvent.install = (Vue, options) => {
     Vue.mixin({
         beforeCreate() {
-            if(this.$options.bmGlobalEvent){
-                var ev = this.$options.bmGlobalEvent
+            if(this.$options.globalEvent){
+                var ev = this.$options.globalEvent
                 for(var i in ev){
                     if(!GLOBALEVENT[i]){
                         GLOBALEVENT[i] = []
@@ -47,7 +47,7 @@ GlobalEvent.install = (Vue, options) => {
             }
         }
     })
-    Vue.prototype.$bus = events
+    Vue.prototype.$event = event
 }
 
 Vue.use(GlobalEvent)
