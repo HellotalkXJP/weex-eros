@@ -9,26 +9,22 @@ Navigator.install = (Vue, options) => {
     Vue.prototype.$navigator = {
         setLeftItem(options, callback){
             navigator.setLeftItem(options, () => {
-                if(!!options.clickCallback) return
-                isFunction(options.clickCallback) && options.clickCallback()
+               isFunction(callback) && callback()
             })
         },
         setRightItem(options, callback){
             navigator.setRightItem(options, () => {
-                if(!!options.clickCallback) return
-                isFunction(options.clickCallback) && options.clickCallback()
+                isFunction(callback) && callback()
             })
         },
         setCenterItem(options, callback){
             navigator.setCenterItem(options, () => {
-                if(!!options.clickCallback) return
-                isFunction(options.clickCallback) && options.clickCallback()
+              isFunction(callback) && callback()
             })
         },
         setNavigationInfo(options, callback){
             navigator.setNavigationInfo(options, () => {
-                if(!!options.clickCallback) return
-                isFunction(options.clickCallback) && options.clickCallback()
+                isFunction(callback) && callback()
             })
         }
     }

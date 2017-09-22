@@ -1,0 +1,14 @@
+{
+  "name": "bmfe-eros-components",
+  "version": "1.0.0",
+  "description": "weex-eors 混生应用解决方案对应组件库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weex-eros，组件库，weex，vue"
+  ],
+  "author": "Zero",
+  "license": "ISC"
+}

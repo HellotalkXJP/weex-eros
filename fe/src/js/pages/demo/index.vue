@@ -21,6 +21,7 @@
     </scroller>
 </template>
 <script>
+import 'Config'
 const SCROLL_FULL_WIDTH = 750
 const dom = weex.requireModule('dom')
 

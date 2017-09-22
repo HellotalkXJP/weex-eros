@@ -12,6 +12,7 @@ var modal = weex.requireModule('bmModal'),
 
 import isEmpty from 'lodash/isEmpty'
 import isFunction from 'lodash/isFunction'
+import _isUndefined from 'lodash/isUndefined'
 import isPlainObject from 'lodash/isPlainObject'
 
 // 客户端默认打开页面的动画
@@ -98,12 +99,13 @@ Router.install = (Vue, options) => {
             options = options || {}
             let currentPageInfo = this.getUrl(options.name)
             if (!currentPageInfo || !currentPageInfo.url) return
+            options.canBack = _isUndefined(options.canBack) ? true : options.canBack
             return new Promise((resolve, reject) => {
                 router.open({
                     url: currentPageInfo.url,
                     type: options.type || DEFAULT_ANIMATETYPE,
                     params: options.params || {},
-                    canBack: options.canBack || true,
+                    canBack: !!options.canBack,
                     navShow: options.navShow || !!currentPageInfo.title || true,
                     navTitle: options.navTitle || currentPageInfo.title,
                     statusBarStyle: options.statusBarStyle || 'Default',
@@ -163,13 +165,13 @@ Router.install = (Vue, options) => {
                 return
             }
             params.title = params.title || 'weex-eros'
-            // params.shareInfo = {
-            //     title: params.shareTitle,
-            //     content: params.content || '',
-            //     image: params.image || '',
-            //     url: params.url || '',
-            //     platforms: params.platforms || [] // 传空的话默认全部
-            // }
+                // params.shareInfo = {
+                //     title: params.shareTitle,
+                //     content: params.content || '',
+                //     image: params.image || '',
+                //     url: params.url || '',
+                //     platforms: params.platforms || [] // 传空的话默认全部
+                // }
             if (params.shareInfo) {
                 !params.shareInfo.image && (params.shareInfo.image = 'https://img.benmu-health.com/wechat/jyt100.png')
             }

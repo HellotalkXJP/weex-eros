@@ -1,18 +1,12 @@
 {
   "name": "app-benmu-health",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "a weex project",
   "main": "index.js",
-  "scripts": {
-    "build": "sudo bm eros min",
-    "dev": "sudo bm server",
-    "uios": "bm eros init ios",
-    "uandroid": "bm eros init android"
-  },
   "keywords": [
     "weex"
   ],
-  "author": "fkysly@gmail.com",
+  "author": "Zero<a2192466@163.com>",
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.4",

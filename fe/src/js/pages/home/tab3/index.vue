@@ -1,10 +1,16 @@
 <template>
   <div>
-    <text>我是tab3</text>
-    <text @click="go">新闻DEMO</text>
+    <div class="title">
+      <text class="text">我是tab3</text>
+    </div>
+    <div class="panel">
+      <text class="text" @click="go">新闻DEMO</text>
+    </div>
   </div>
+  
 </template>
 <script>
+  import 'Config'
   export default {
     data () {
       return {
@@ -22,11 +28,19 @@
   }
 </script>
 <style scoped>
-  .panel {
+  .title{
     width: 600px;
     height: 250px;
     margin-left: 75px;
     margin-top: 35px;
+    margin-bottom: 10px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .panel {
+    width: 600px;
+    height: 250px;
+    margin-left: 75px;
     margin-bottom: 35px;
     flex-direction: column;
     justify-content: center;

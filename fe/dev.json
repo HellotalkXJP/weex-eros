@@ -1,12 +1,13 @@
 {
     "exports": [
         "js/service/bus.js",
-        "js/pages/home/index.js",
-        "js/pages/demo/index.js",
-        "js/pages/home/tab1/index.js",
-        "js/pages/home/tab2/index.js",
-        "js/pages/home/tab2/components/router/index.js",
-        "js/pages/home/tab3/index.js"
+        "js/pages/home/index.vue",
+        "js/pages/demo/index.vue",
+        "js/pages/home/tab1/index.vue",
+        "js/pages/home/tab2/index.vue",
+        "js/pages/home/tab2/router.vue",
+        "js/pages/home/tab2/amap.vue",
+        "js/pages/home/tab3/index.vue"
     ],
     "alias": {
         "Components": "js/components",
@@ -16,16 +17,16 @@
         "Pages": "js/pages",
         "Utils": "js/utils"
     },
-    "server": { 
-        "path": "../", 
-        "port": 80 
+    "server": {
+        "path": "../",
+        "port": 80
     },
-    "proxy": [{ 
-        "route": "/test", 
-        "target": "127.0.0.1:52077/test" 
+    "proxy": [{
+        "route": "/test",
+        "target": "127.0.0.1:52077/test"
     }],
-    "mockServer": { 
-        "port": 52077, 
-        "mockDir": "./dist/mock" 
+    "mockServer": {
+        "port": 52077,
+        "mockDir": "./dist/mock"
     }
 }

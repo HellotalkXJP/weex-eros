@@ -65,7 +65,10 @@
                 android:screenOrientation="portrait"
                 android:theme="@android:style/Theme.Light.NoTitleBar"/>
 
-        <activity android:name=".activity.SplashActivity">
+        <activity
+                android:name=".activity.SplashActivity"
+                android:theme="@style/FullscreenTheme"
+                >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

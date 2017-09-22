@@ -1,51 +1,45 @@
 <template>
   <div>
-    <text> </text>
     <list class="list">
-      <cell v-for="(v,i) in rows" append="tree" :index="i" :key="i" class="row" @appear="onappear(i, $event)" @disappear="ondisappear(i, $event)">
-        <div class="item" @click="handle(v.type)">
-          <text class="item-title">{{'id:' + v.id}} - {{v.name}}</text>
-        </div>
+    <header class="panel">
+       <text>eros 二次封装和拓展的 widgets 。</text>
+      <text>lat:{{this.lat}}-lng:{{this.lng}}</text>
+      <text :value="'当前显示id: ' + appearMin + ' ~ ' + appearMax"></text>
+    </header>
+      <cell class="panel" v-for="(v,i) in rows" append="tree" :index="i" :key="i" @appear="onappear(i, $event)"  @click="handle(v.type)" @disappear="ondisappear(i, $event)">
+          <text class="text">{{'id:' + v.id}} - {{v.name}}</text>
       </cell>
     </list>
-    <text>本木二次封装和拓展的插件。</text>
-    <text>lat:{{this.lat}}-lng:{{this.lng}}</text>
-    <text :value="'当前显示id: ' + appearMin + ' ~ ' + appearMax"></text>
   </div>
 </template>
 
 <style scoped>
-.count {
-  font-size: 48px;
-  margin: 10px;
-}
-
-.indicator {
-  height: 40px;
-  width: 40px;
-  color: #45b5f0;
-}
-
-.row {
-  width: 750px;
-}
-
-.item {
-  justify-content: center;
-  border-bottom-width: 2px;
-  border-bottom-color: #c0c0c0;
-  height: 100px;
-  padding: 20px;
-}
-
-.item:active {
-  background-color: #00BDFF;
-}
-
+  .list{
+   display: flex;
+  }
+  .panel {
+    width: 710px;
+    height: 150px;
+    margin-left: 20px;
+    padding-left: 20px;
+    margin-top: 40px;
+    /*flex-direction: column;*/
+    justify-content: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(162, 217, 192);
+    background-color: rgba(162, 217, 192, 0.2);
+  }
+  .text {
+    font-size: 30px;
+    text-align: left;
+    color: #41B883;
+  }
 </style>
 
 <script>
-module.exports = {
+import 'Config'
+export default {
   methods: {
     handle(type) {
       this[`handle_${type}`]()
@@ -59,15 +53,20 @@ module.exports = {
       })
     },
     handle_router() {
-      debugger
       this.$router.open({
-        name: 'router.test'
+        name: 'router.test',
+        statusBarStyle: 'LightContent'
       })
     },
     handle_routerPresent() {
       this.$router.open({
         name: 'router.test',
         type: 'PRESENT'
+      })
+    },
+    handle_routerAmap() {
+      this.$router.open({
+        name: 'router.amap'
       })
     },
     handle_routerWebView() {
@@ -123,7 +122,7 @@ module.exports = {
       })
     },
     handle_uploadImg() {
-      this.$camera.uploadImg({
+      this.$image.upload({
         maxCount: 3,
       },resData => {
           this.$notice.alert({
@@ -218,6 +217,10 @@ module.exports = {
           id: 10,
           name: '上传图片',
           type: 'uploadImg',
+        },{
+          id:11,
+          name: '地图',
+          type: 'routerAmap'
         }]
     }
   }

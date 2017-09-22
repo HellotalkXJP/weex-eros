@@ -1,9 +1,9 @@
 #!/bin/bash
 
-rm -rf WeexiOSSDK/
-rm -rf Benmu-iOS-Library/
-#rm -rf Podfile.lock
-#rm -rf Pods/
+sudo rm -rf WeexiOSSDK/
+sudo rm -rf Benmu-iOS-Library/
+sudo rm -rf Podfile.lock
+sudo rm -rf Pods/
 
 git clone https://github.com/xiaohuapunk/WeexiOSSDK.git
 

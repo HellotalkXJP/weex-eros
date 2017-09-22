@@ -236,6 +236,7 @@
 </style>
 
 <script>
+  import 'Config'
   export default {
     data: function() {
       const items = [

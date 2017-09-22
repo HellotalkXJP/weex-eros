@@ -16,6 +16,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
     }
 }
 
@@ -23,7 +29,7 @@ repositories {
     mavenCentral()
     flatDir {
 
-        dirs '../wxframework/libs','libs'
+        dirs '../wxframework/libs', 'libs'
 
     }
 }

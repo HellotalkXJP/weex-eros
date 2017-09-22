@@ -5,9 +5,9 @@
   </div>
 </template>
 <script>
+import 'Config'
 import tabs from 'Components/tabs/bar'
 export default {
-    el: '#root',
     created() {
         console.log('weex-eros:',weex.config.env.jsServer)
     },
