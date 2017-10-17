@@ -4,11 +4,14 @@
         "android": "weex-eros-version",
         "iOS": "weex-eros-version"
     },
+    "widget": {
+        "path": "/widgets/index.js"
+    },
     "page": {
         "homePage": "/pages/home/index.js",
-        "mediatorPage": "/service/bus/index.js",
-        "navBarColor": "#3385ff",
-        "navItemColor": "#ffffff"
+        "mediatorPage": "/store/index.js",
+        "navBarColor": "#ffffff",
+        "navItemColor": "#333"
     },
     "url": {
         "request": "http://test.weex-eros.com",
@@ -16,7 +19,7 @@
         "image": "https://lev-inf.benmu-health.com/test/xxx"
     },
     "zipFolder": {
-        "server": "home/app/",
+        "server": "/Users/yangmingzhe/Work/packapp",
         "iOS": "/ios/WeexEros/WeexEros",
         "android": "/android/WeexFrameworkWrapper/app/src/main/assets"
     },

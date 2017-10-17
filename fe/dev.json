@@ -1,19 +1,34 @@
 {
     "exports": [
-        "js/service/bus.js",
+        "js/store/index.js",
+        "js/widgets/index.js",
+
         "js/pages/home/index.vue",
-        "js/pages/demo/index.vue",
-        "js/pages/home/tab1/index.vue",
+
+        "js/pages/home/tab1/tab-page/index.vue",
         "js/pages/home/tab2/index.vue",
-        "js/pages/home/tab2/router.vue",
-        "js/pages/home/tab2/amap.vue",
-        "js/pages/home/tab3/index.vue"
+        "js/pages/home/tab3/index.vue",
+        "js/pages/home/tab4/index.vue",
+
+        "js/pages/home/tab2/button.vue",
+        "js/pages/home/tab2/tip.vue",
+        "js/pages/home/tab2/header.vue",
+        "js/pages/home/tab2/image.vue",
+        "js/pages/home/tab2/icon.vue",
+        "js/pages/home/tab2/tabbar.vue",
+
+        "js/pages/home/tab3/router.vue",
+        "js/pages/home/tab3/amap.vue",
+
+        "js/pages/home/tab4/demo/index.vue",
+        "js/pages/home/tab4/waterfall.vue"
     ],
     "alias": {
         "Components": "js/components",
+        "Eros": "js/components/__eros__",
         "Common": "js/common",
         "Config": "js/config",
-        "Widget": "js/widget",
+        "Widgets": "js/widgets",
         "Pages": "js/pages",
         "Utils": "js/utils"
     },

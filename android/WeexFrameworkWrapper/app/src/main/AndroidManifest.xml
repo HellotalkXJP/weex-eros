@@ -41,6 +41,15 @@
             android:theme="@style/AppTheme.NoActionBar"
             >
 
+
+        <meta-data
+                android:name="UMENG_APPKEY"
+                android:value="${UMENG_APP_KEY}"/>
+        <meta-data
+                android:name="UMENG_CHANNEL"
+                android:value="${UMENG_CHANNEL_VALUE}"/>
+
+
         <activity android:name="com.benmu.wx.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -94,6 +103,27 @@
             </intent-filter>
         </activity>
 
+        <service android:name="com.benmu.framework.service.BroadcastChannelService"/>
+
+        <!--wxApi-->
+        <activity
+                android:name=".wxapi.WXEntryActivity"
+                android:exported="true"
+                android:launchMode="singleTop"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:scheme="your wx appId"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".wxapi.WXPayEntryActivity"
+                android:exported="true"
+                android:launchMode="singleTop"/>
 
     </application>
 

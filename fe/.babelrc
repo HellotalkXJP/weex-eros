@@ -1,4 +1,13 @@
 {
-    "plugins": ["transform-runtime"],
+    "plugins": [
+        [
+            "transform-runtime",
+            "component",
+            {
+                "libraryName": "weex-ui",
+                "libDir": "packages"
+            }
+        ]
+    ],
     "presets": ["es2015", "stage-0"]
 }

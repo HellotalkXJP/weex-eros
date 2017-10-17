@@ -6,7 +6,7 @@ rm -rf bmwidget/
 
 git clone https://github.com/aa453509345/WeexErosFramework.git "wxframework"
 cd wxframework
-git checkout dev
+git checkout 1.0.0
 cd ../
 git clone https://github.com/aa453509345/WeexSDK.git "sdk"
 cd sdk

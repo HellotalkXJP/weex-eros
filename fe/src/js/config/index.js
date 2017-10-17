@@ -1,26 +1,21 @@
-import pages from './pages'
-import { apis, responseHandler } from './apis'
+import routes from '../routes'
+import { msgMap } from './push'
+import { ajaxMap, responseHandler } from '../service'
+import './other'
+
+// 开关
+const switchs = {
+    // $service 中配置的请求
+    // true 走本地 mock | false 真实接口
+    mock: true
+}
 
 export const config = {
-    pages,
-    apis,
-    responseHandler
+    switchs,
+    routes,
+    msgMap,
+    ajaxMap,
+    responseHandler,
 }
 
 Vue.prototype.eros = config
-
-// 字体大小配置
-var event = weex.requireModule('bmEvents')
-var FONT_MODULUS = weex.config.env.bmFontScale || 1
-event.on('FONT-changeFont', (resData) => {
-    FONT_MODULUS = resData.fontScale
-})
-export const fontModules = { FONT_MODULUS }
-
-// 加载iconfont
-// 每次新增或者更改都改变url
-var dom = weex.requireModule('dom')
-dom.addRule('fontFace', {
-    'fontFamily': "iconfont",
-    'src': "url('https://img.benmu-health.com/iconfont/app-doctor-fe/1.0.4/iconfont.ttf')"
-})

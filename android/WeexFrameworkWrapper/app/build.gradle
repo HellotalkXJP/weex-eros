@@ -15,13 +15,28 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders=[UMENG_APP_KEY:UMENG_APPKEY]
         }
 
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders=[UMENG_APP_KEY:UMENG_APPKEY]
         }
 
+    }
+
+    productFlavors {
+        samplechannel{
+
+        }
+
+        yingyongbao{
+
+        }
+    }
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
     }
 }
 
