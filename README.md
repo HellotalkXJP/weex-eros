@@ -1,3 +1,5 @@
+### 项目已经发布 2.0 版本，并已经迁移至[传送门](https://github.com/bmfe)
+
 ### [weex-eros](https://karynsong.gitbooks.io/weex-eros/content/)
  是什么？
 
