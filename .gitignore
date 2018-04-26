@@ -1,21 +1,25 @@
-# Created by IDE
+Created by IDE
 .DS_Store
 .idea/
 *.iml
 
+docs
+
 .*
 !.gitignore
 !.eslintrc
+!.editorconfig
 !.babelrc
 
 # Node
+eros-widget/
 logs
 *.log
 npm-debug.log*
 .npm
-/*/node_modules
-/*/dist
-/*/bower_components
+node_modules
+dist
+bower_components
 
 # Runtime data
 pids
@@ -26,7 +30,9 @@ pids
 # built application files
 *.apk
 *.ap_
-
+wxframework
+sdk
+bmwidget
 # files for the dex VM
 *.dex
 
@@ -54,6 +60,7 @@ build/
 .idea/
 .gradle/
 android/playground/local.properties
+
 /*/*/production
 *.iml
 *.iws
